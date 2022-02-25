@@ -2,7 +2,7 @@ Feature: Registration
 
 
   @UIregistration
-  Scenario Outline: Register new users for GMI Bank
+  Scenario Outline: Register new users
     Given user is on the registration page
     And user enters ssn number as "<SSN>"
     Then user enters firstname and lastname as "<firstname>" and "<lastname>"
@@ -15,3 +15,4 @@ Feature: Registration
     Examples:
       |SSN|firstname|lastname|username|email|firstpassword|secondpassword|message|
       |563-26-3726|Bahar|trk|sdet|bhrturk@gmail.com|Bhr@123?|Bhr@123?|Registration saved!|
+      |746-26-3726|Murat|DRK|sdet|bhrturk@gmail.com|Bhr@123?|Bhr@123?|Registration saved!|

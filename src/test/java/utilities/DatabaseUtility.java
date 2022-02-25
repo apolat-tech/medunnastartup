@@ -1,68 +1,43 @@
 package utilities;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DBUtils {
+import static utilities.DBUtils.executeQuery;
+import static utilities.DBUtils.getQueryResultList;
+
+public class DatabaseUtility {
+
     private static Connection connection;
     private static Statement statement;
     private static ResultSet resultSet;
 
-    /**
-     * DBUtils.createConnection(); -> to connect to teh database
-     */
-    public static void createConnection() {
-        String url = "jdbc:sqlserver://184.168.194.58:1433;databaseName=crystalkeyhotels2;user=Ahmet_User;password=Ahmet123!";
-        String username = "Ahmet_User";
-        String password = "Ahmet123!";
+    private static void createConnection() {
+        String url = ConfigReader.getProperty("database_url");
+        String user = ConfigReader.getProperty("database_user");
+        String password = "Techpro_@2016";
         try {
-            connection = DriverManager.getConnection(url, username, password);
+            connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
     }
 
     public static void createConnection(String url, String user, String password) {
-
         try {
             connection = DriverManager.getConnection(url, user, password);
-        } catch (SQLException e){
-            //TODO Auto-generated catch block
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
 
-
-    /**
-     * DBUtils.executeQuery(String query); -> Execute the query and store is the result set object
-     */
-    public static void executeQuery(String query) {
-        try {
-            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            resultSet = statement.executeQuery(query);
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-
-    //    used to close the connectivity
     public static void closeConnection() {
+
         try {
             if (resultSet != null) {
                 resultSet.close();
@@ -78,6 +53,39 @@ public class DBUtils {
         }
     }
 
+    public static List<Map<String, Object>> getQueryResultMap(String query) {
+        executeQuery(query);
+        List<Map<String, Object>> rowList = new ArrayList<>();
+        ResultSetMetaData rsmd;
+        try {
+            rsmd = resultSet.getMetaData();
+            while (resultSet.next()) {
+                Map<String, Object> colNameValueMap = new HashMap<>();
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    colNameValueMap.put(rsmd.getColumnName(i), resultSet.getObject(i));
+                }
+                rowList.add(colNameValueMap);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rowList;
+    }
+
+    public static void executeQuery(String query) {
+
+        try {
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            resultSet = statement.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static Connection getConnection() {
         String url = "jdbc:sqlserver://184.168.194.58:1433;databaseName=crystalkeyhotels2;user=Ahmet_User;password=Ahmet123!";
@@ -104,7 +112,18 @@ public class DBUtils {
     }
 
 
-    //Use this to get the ResutSet object
+    public static int getRowCount() throws Exception {
+
+        resultSet.last();
+        int rowCount = resultSet.getRow();
+        return rowCount;
+    }
+
+    public static void insertCountry(String countryName) {
+
+    }
+
+    //Use this to get the ResultSet object
     public static ResultSet getResultset() {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -113,13 +132,6 @@ public class DBUtils {
             e.printStackTrace();
         }
         return resultSet;
-    }
-
-    // This method returns the number fo row in a table in the database
-    public static int getRowCount() throws Exception {
-        resultSet.last();
-        int rowCount = resultSet.getRow();
-        return rowCount;
     }
 
     /**
@@ -139,7 +151,6 @@ public class DBUtils {
     public static List<Object> getRowList(String query) {
         return getQueryResultList(query).get(0);
     }
-
     /**
      * @return returns a map which represent a row of data where key is the column
      * name. If the query results in multiple rows and/or columns of data,
@@ -192,30 +203,6 @@ public class DBUtils {
         return rowList;
     }
 
-    /**
-     * @return returns query result in a list of maps where the list represents
-     * collection of rows and a map represents represent a single row with
-     * key being the column name
-     */
-    public static List<Map<String, Object>> getQueryResultMap(String query) {
-        executeQuery(query);
-        List<Map<String, Object>> rowList = new ArrayList<>();
-        ResultSetMetaData rsmd;
-        try {
-            rsmd = resultSet.getMetaData();
-            while (resultSet.next()) {
-                Map<String, Object> colNameValueMap = new HashMap<>();
-                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    colNameValueMap.put(rsmd.getColumnName(i), resultSet.getObject(i));
-                }
-                rowList.add(colNameValueMap);
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return rowList;
-    }
 
     /*
      * @return List of columns returned in result set

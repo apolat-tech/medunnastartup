@@ -4,9 +4,13 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import utilities.ConfigReader;
+import utilities.DBUtils;
+import utilities.DatabaseUtility;
 import utilities.Driver;
 
 import java.io.IOException;
+
+import static base_url_set.MedunnaBaseUrl.medunnaSetup;
 
 public class Hooks {
 //    What is hooks class in cucumber?
@@ -24,6 +28,18 @@ public class Hooks {
     @Before(order=3, value="@UIregistration")
     public void beforeRegistration() {
         Driver.getDriver().get("https://medunna.com/account/register");
+    }
+
+    @Before(order=4, value="@Api")
+    public void beforeApi() {
+        medunnaSetup();
+    }
+
+    @Before(order=4, value="@DBtesting")
+    public void beforeDatabase() {
+        DatabaseUtility.createConnection(ConfigReader.getProperty("db_credentials_url"),
+                ConfigReader.getProperty("db_username"),ConfigReader.getProperty("db_password"));
+
     }
 
 
