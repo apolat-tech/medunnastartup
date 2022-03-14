@@ -29,8 +29,8 @@ public class DatabaseSteps {
 
     @Given("user saves the DB data to correspondent files")
     public void user_saves_the_db_data_to_correspondent_files() {
-        // WriteToTxt.saveDBUserData(fileName,actualData); //run this one time only
-                
+       //  WriteToTxt.saveDBUserData(fileName,actualData); //run this one time only
+
     }
 
     @Then("user validates DB")

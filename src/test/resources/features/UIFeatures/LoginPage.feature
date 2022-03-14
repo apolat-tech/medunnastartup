@@ -12,6 +12,7 @@ Feature: Login for common users
     When user provides the username as "<username>"
     And user provides the password as "<password>"
     Then user clicks on login button
+    And hi
 
     Examples: all data
     |url|username|password|

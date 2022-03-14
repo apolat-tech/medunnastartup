@@ -76,7 +76,7 @@ public class RegistrationSteps {
         Driver.waitAndClick(registrationPage.registerButton);
         Driver.sleep(1000);
         //check the below one!!!
-        // Assert.assertTrue("Registration has failed! ", registrationPage.successMessageToastContainer.isDisplayed());
+         Assert.assertTrue("Registration has failed! ", registrationPage.successMessageToastContainer.isDisplayed());
         //System.out.println(registrant);
         WriteToTxt.saveRegistrantData(fileName,registrant);
 

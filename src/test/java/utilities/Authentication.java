@@ -18,8 +18,8 @@ public class Authentication extends MedunnaBaseUrl {
 
         //Set the expected data
         Map<String, Object> data = new HashMap<>();
-        data.put("username", "admin");
-        data.put("password", "Admin@123");
+        data.put("username", "admin79");
+        data.put("password", "admin");
         data.put("rememberme", "true");
 
         //Send the Post request and get response

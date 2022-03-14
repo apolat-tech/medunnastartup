@@ -1,5 +1,6 @@
 package utilities;
 
+import pojos.Appointment;
 import pojos.Registrant;
 
 import java.io.BufferedWriter;
@@ -42,6 +43,38 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+//    public static void saveAppointmentData(String fileName, Appointment[] appointments) {
+//        try {
+//            FileWriter fileWriter = new FileWriter(fileName, true);
+//            BufferedWriter writer = new BufferedWriter(fileWriter);
+//
+//            for (int i = 0; i < registrants.length; i++) {
+//                writer.append(registrants[i].getSsn() + "," + registrants[i].getFirstName() + ","
+//                        + registrants[i].getLastName() + "," + registrants[i].getLogin() + ","
+//                        + registrants[i].getEmail() + ","
+//                        + registrants[i].isActivated() + ","
+//                        + registrants[i].getCreatedDate() + ",\n");
+//            }
+//
+//            for (int i = 0; i < appointments.length; i++) {
+//                if (appointments[i].getPatient() != null) {//to ignore the null ones
+//                    writer.append(appointments[i].getPatient().getFirstName()+","
+//                            +appointments[i].getPatient().getLastName());
+//                    System.out.println("Name: ");
+//                    System.out.println("LastName: " +"") ;
+//                    if (appointments[i].getPatient().getUser() != null)//to ignore the null ones
+//                        System.out.println("SSN: " + appointments[i].getPatient().getUser().getSsn());
+//                }
+//            }
+//
+//
+//            writer.close();
+//            Registrant registrant1 = new Registrant();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public static void saveDBUserData(String fileName, List<Object> actualData) {
         try {

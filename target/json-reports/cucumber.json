@@ -3,391 +3,119 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2022-02-21T03:44:59.544Z",
-        "before": [
-          {
-            "result": {
-              "duration": 4486000000,
-              "status": "passed"
-            },
-            "match": {
-              "location": "stepdefinitions.Hooks.beforeRegistration()"
-            }
-          }
-        ],
-        "line": 17,
-        "name": "Register new users",
+        "line": 3,
+        "name": "",
         "description": "",
-        "id": "registration;register-new-users;;2",
-        "after": [
-          {
-            "result": {
-              "status": "passed"
-            },
-            "match": {
-              "location": "stepdefinitions.Hooks.tearDown(io.cucumber.java.Scenario)"
-            }
-          }
-        ],
-        "type": "scenario",
-        "keyword": "Scenario Outline",
+        "type": "background",
+        "keyword": "Background",
         "steps": [
           {
             "result": {
-              "duration": 502000000,
+              "duration": 8016000000,
               "status": "passed"
             },
-            "line": 6,
-            "name": "user is on the registration page",
-            "match": {
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_is_on_the_registration_page()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 173000000,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "user enters ssn number as \"563-26-3726\"",
+            "line": 4,
+            "name": "user creates a connection with DB using \"jdbc:postgresql://medunna.com:5432/medunna_db\",\"medunnadb_user\" and \"Medunnadb_@129\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"563-26-3726\"",
-                  "offset": 26
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_enters_ssn_number_as(java.lang.String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 279000000,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "user enters firstname and lastname as \"Bahar\" and \"trk\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Bahar\"",
-                  "offset": 38
+                  "val": "\"jdbc:postgresql://medunna.com:5432/medunna_db\"",
+                  "offset": 40
                 },
                 {
-                  "val": "\"trk\"",
-                  "offset": 50
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_enters_firstname_and_lastname_as_and(java.lang.String,java.lang.String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 129000000,
-              "status": "passed"
-            },
-            "line": 9,
-            "name": "user provides a username \"sdet\"",
-            "match": {
-              "arguments": [
+                  "val": "\"medunnadb_user\"",
+                  "offset": 88
+                },
                 {
-                  "val": "\"sdet\"",
-                  "offset": 25
+                  "val": "\"Medunnadb_@129\"",
+                  "offset": 109
                 }
               ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_provides_a_username(java.lang.String)"
+              "location": "stepdefinitions.database_step_defs.DatabaseSteps.user_creates_a_connection_with_db_using_and(java.lang.String,java.lang.String,java.lang.String)"
             },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 150000000,
-              "status": "passed"
-            },
-            "line": 10,
-            "name": "user provides email id as \"bhrturk@gmail.com\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"bhrturk@gmail.com\"",
-                  "offset": 26
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_provides_email_id_as(java.lang.String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 1144000000,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "user enters the password as \"Bhr@123?\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Bhr@123?\"",
-                  "offset": 28
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_enters_the_password_as(java.lang.String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1129000000,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "user confirms the new password \"Bhr@123?\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Bhr@123?\"",
-                  "offset": 31
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_confirms_the_new_password(java.lang.String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3179000000,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "user clicks on register button and sees the success message as \"Registration saved!\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Registration saved!\"",
-                  "offset": 63
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_clicks_on_register_button_and_sees_the_success_message_as(java.lang.String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 14,
-            "name": "user reads all registrant data",
-            "match": {
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_reads_all_registrant_data()"
-            },
-            "keyword": "Then "
-          }
-        ],
-        "tags": [
-          {
-            "name": "@UIregistration"
+            "keyword": "Given "
           }
         ]
       },
       {
-        "start_timestamp": "2022-02-21T03:45:10.881Z",
+        "start_timestamp": "2022-03-06T01:30:54.608Z",
         "before": [
           {
             "result": {
-              "duration": 375000000,
+              "duration": 22107000000,
               "status": "passed"
             },
             "match": {
-              "location": "stepdefinitions.Hooks.beforeRegistration()"
+              "location": "stepdefinitions.Hooks.beforeDatabase()"
             }
           }
         ],
-        "line": 18,
-        "name": "Register new users",
+        "line": 13,
+        "name": "Database testing",
         "description": "",
-        "id": "registration;register-new-users;;3",
-        "after": [
-          {
-            "result": {
-              "status": "passed"
-            },
-            "match": {
-              "location": "stepdefinitions.Hooks.tearDown(io.cucumber.java.Scenario)"
-            }
-          }
-        ],
+        "id": "db-user-data-test;database-testing;db-data-manipulation;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 284000000,
+              "duration": 47686000000,
               "status": "passed"
             },
-            "line": 6,
-            "name": "user is on the registration page",
+            "line": 8,
+            "name": "user sends the query to db and gets the column data \"Select * from jhi_user;\" and \"ssn\"",
             "match": {
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_is_on_the_registration_page()"
+              "arguments": [
+                {
+                  "val": "\"Select * from jhi_user;\"",
+                  "offset": 52
+                },
+                {
+                  "val": "\"ssn\"",
+                  "offset": 82
+                }
+              ],
+              "location": "stepdefinitions.database_step_defs.DatabaseSteps.user_sends_the_query_to_db_and_gets_the_column_data_and(java.lang.String,java.lang.String)"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 236000000,
-              "status": "passed"
-            },
-            "line": 7,
-            "name": "user enters ssn number as \"746-26-3726\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"746-26-3726\"",
-                  "offset": 26
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_enters_ssn_number_as(java.lang.String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 423000000,
-              "status": "passed"
-            },
-            "line": 8,
-            "name": "user enters firstname and lastname as \"Murat\" and \"DRK\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Murat\"",
-                  "offset": 38
-                },
-                {
-                  "val": "\"DRK\"",
-                  "offset": 50
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_enters_firstname_and_lastname_as_and(java.lang.String,java.lang.String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 143000000,
+              "duration": 88127000000,
               "status": "passed"
             },
             "line": 9,
-            "name": "user provides a username \"sdet\"",
+            "name": "user saves the DB data to correspondent files",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"sdet\"",
-                  "offset": 25
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_provides_a_username(java.lang.String)"
+              "location": "stepdefinitions.database_step_defs.DatabaseSteps.user_saves_the_db_data_to_correspondent_files()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 179000000,
+              "duration": 301673000000,
               "status": "passed"
             },
             "line": 10,
-            "name": "user provides email id as \"bhrturk@gmail.com\"",
+            "name": "user validates DB",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"bhrturk@gmail.com\"",
-                  "offset": 26
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_provides_email_id_as(java.lang.String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "duration": 1162000000,
-              "status": "passed"
-            },
-            "line": 11,
-            "name": "user enters the password as \"Bhr@123?\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Bhr@123?\"",
-                  "offset": 28
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_enters_the_password_as(java.lang.String)"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "duration": 1130000000,
-              "status": "passed"
-            },
-            "line": 12,
-            "name": "user confirms the new password \"Bhr@123?\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Bhr@123?\"",
-                  "offset": 31
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_confirms_the_new_password(java.lang.String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3217000000,
-              "status": "passed"
-            },
-            "line": 13,
-            "name": "user clicks on register button and sees the success message as \"Registration saved!\"",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Registration saved!\"",
-                  "offset": 63
-                }
-              ],
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_clicks_on_register_button_and_sees_the_success_message_as(java.lang.String)"
-            },
-            "keyword": "Then "
-          },
-          {
-            "result": {
-              "status": "passed"
-            },
-            "line": 14,
-            "name": "user reads all registrant data",
-            "match": {
-              "location": "stepdefinitions.seleniumuisteps.RegistrationSteps.user_reads_all_registrant_data()"
+              "location": "stepdefinitions.database_step_defs.DatabaseSteps.user_validates_db()"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@UIregistration"
+            "name": "@DBtesting"
           }
         ]
       }
     ],
-    "name": "Registration",
+    "name": "DB user data test",
     "description": "",
-    "id": "registration",
+    "id": "db-user-data-test",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/UIFeatures/Registration.feature",
+    "uri": "file:src/test/resources/features/database_features/RegistrantUserDb.feature",
     "tags": []
   }
 ]

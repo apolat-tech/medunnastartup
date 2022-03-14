@@ -47,6 +47,8 @@ public class Hooks {
     @After(order=3, value="@UIregistration")
     public void tearDown(Scenario scenario) throws IOException {
         System.out.println();
+        System.out.println("Hello");
+     //   Driver.closeDriver();
 //////        System.out.println("This is hooks after method");
 //////        Getting the screenshot: getScreenshotAs method takes the screenshot
 //        final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
